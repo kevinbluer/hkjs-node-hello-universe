@@ -1,0 +1,18 @@
+{
+  "author": "Kevin Bluer <kevin@bluer.com> (http://www.bluer.com)",
+  "name": "hongkongjs",
+  "description": "HKJS",
+  "version": "1.0.0",
+  "homepage": "hongkongjs.com",
+  "repository": {
+    "url": ""
+  },
+  "main": "app.js",
+  "engines": {
+    "node": "~6.9.2"
+  },
+  "dependencies": {
+    "express": "^4.15.2"
+  },
+  "devDependencies": {}
+}

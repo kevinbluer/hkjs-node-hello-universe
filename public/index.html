@@ -1,0 +1,67 @@
+<!doctype html>
+<html ng-app="resourceBrowserApp">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+    <script src="js/custom.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+
+  </head>
+  <body ng-controller="ResourceBrowserController as resourceBrowser">
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">HKJS</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container theme-showcase" role="main">
+
+      <!-- Main jumbotron for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <h1>Resource Browser</h1>
+        <p>Browse and discover the best frameworks, tools, etc.</p>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <input type="text" placeholder="Type to begin filtering..." ng-model="resourceList.search" style="width: 100%; padding: 10px; margin: 0px 0 20px 0;">
+        </div>
+      </div>
+
+      <div ng-init="resourceBrowser.loadResources()">
+
+        <div class="row">
+          <div class="col-sm-4" ng-repeat="resource in resources | filter:resourceList.search | orderBy:'title'">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title">{{ resource.title }}</h3>
+              </div>
+              <div class="panel-body">
+                <p>{{ resource.description }}</p>
+                <a href="{{ resource.url }}" class="btn btn-sm btn-primary">View More</a>
+              </div>
+            </div>
+          </div><!-- /.col-sm-4 -->
+        </div>
+
+      </div>
+    </div>
+    
+  </body>
+</html>
